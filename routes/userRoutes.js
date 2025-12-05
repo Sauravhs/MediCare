@@ -1,27 +1,40 @@
-const express = require('express');
-const { loginController, registerController, authController,applyDoctorController,getAllNotificationController,deleteAllNotificationController } = require('../controllers/userCtrl');
-const authMiddleware = require('../middlewares/authMiddleware');
+const express = require("express");
+const {
+  loginController,
+  registerController,
+  authController,
+  applyDoctorController,
+  getAllNotificationController,
+  deleteAllNotificationController,
+} = require("../controllers/userCtrl");
+const authMiddleware = require("../middlewares/authMiddleware");
 
-//routes onject
+//router onject
 const router = express.Router();
 
 //routes
 //LOGIN || POST
-router.post('/login', loginController);
+router.post("/login", loginController);
 
 //REGISTER || POST
-router.post('/register', registerController);
+router.post("/register", registerController);
 
-// Auth || post
-router.post('/getUserData',authMiddleware, authController);
+//Auth || POST
+router.post("/getUserData", authMiddleware, authController);
 
-// Apply  doctor|| post
-router.post('/apply-doctor',authMiddleware, applyDoctorController);
-//module.exports = router;
+//APply Doctor || POST
+router.post("/apply-doctor", authMiddleware, applyDoctorController);
 
-// Notification  doctor|| post
-router.post('/get-all-notification',authMiddleware,  getAllNotificationController);
-
-// Notification  doctor|| post
-router.post('/delete-all-notification',authMiddleware, deleteAllNotificationController);
+//Notifiaction  Doctor || POST
+router.post(
+  "/get-all-notification",
+  authMiddleware,
+  getAllNotificationController
+);
+//Notifiaction  Doctor || POST
+router.post(
+  "/delete-all-notification",
+  authMiddleware,
+  deleteAllNotificationController
+);
 module.exports = router;

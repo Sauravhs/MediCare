@@ -1,4 +1,4 @@
- const doctorModel = require("../models/doctorModel");
+const doctorModel = require("../models/doctorModel");
 const userModel = require("../models/userModels");
 
 const getAllUsersController = async (req, res) => {
