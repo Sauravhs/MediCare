@@ -118,6 +118,7 @@ const BookingPage = () => {
                 className="m-2"
                 format="DD-MM-YYYY"
                 onChange={(value) => {
+                  setIsAvailable(false);
                   setDate(moment(value).format("DD-MM-YYYY"));
                 }}
               />
@@ -126,6 +127,7 @@ const BookingPage = () => {
                 format="HH:mm"
                 className="mt-3"
                 onChange={(value) => {
+                  setIsAvailable(false);
                   setTime(moment(value).format("HH:mm"));
                 }}
               />
@@ -136,10 +138,11 @@ const BookingPage = () => {
               >
                 Check Availability
               </button>
-
+              {!isAvailable && ( 
               <button className="btn btn-dark mt-2" onClick={handleBooking}>
                 Book Now
               </button>
+              )}
             </div>
           </div>
         )}
